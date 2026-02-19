@@ -4,7 +4,7 @@ import { join, resolve } from 'path';
 import { $ } from 'bun';
 
 const SLIDES_DIR = 'slides';
-const MANIFEST_PATH = join(SLIDES_DIR, 'lessons.json');
+const MANIFEST_PATH = join('.', 'src/lib/lessons.json');
 const OUTPUT_DIR = 'static/slides';
 
 interface LessonMeta {
