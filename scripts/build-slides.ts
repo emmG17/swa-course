@@ -47,6 +47,13 @@ async function main() {
   await writeFile(MANIFEST_PATH, JSON.stringify(lessons, null, 2), 'utf-8');
   console.log(`Generated manifest with ${lessons.length} lessons at ${MANIFEST_PATH}`);
 
+  const MANIFEST_ONLY = process.argv.includes('--manifest-only');
+
+  if (MANIFEST_ONLY) {
+    console.log('Manifest generated. Skipping slide builds.');
+    return;
+  }
+
   // Builds each slide into the output directory (sequentially to avoid memory issues)
   for (const lesson of lessons) {
     const input = resolve(SLIDES_DIR, `${lesson.slug}.md`);
