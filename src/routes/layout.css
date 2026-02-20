@@ -1,3 +1,35 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+/* Class-based dark mode for manual toggle */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Light mode tokens (default) */
+@theme {
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F2F2F7;
+  --color-bg-tertiary: #FFFFFF;
+  --color-label-primary: #000000;
+  --color-label-secondary: rgba(60, 60, 67, 0.6);
+  --color-separator: rgba(60, 60, 67, 0.29);
+  --color-apple-green: #34C759;
+}
+
+/* Dark mode token overrides */
+.dark {
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #1C1C1E;
+  --color-bg-tertiary: #2C2C2E;
+  --color-label-primary: #FFFFFF;
+  --color-label-secondary: rgba(235, 235, 245, 0.6);
+  --color-separator: rgba(84, 84, 88, 0.65);
+  --color-apple-green: #30D158;
+}
+
+/* Base element styling */
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-label-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}

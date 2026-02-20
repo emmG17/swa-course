@@ -1,5 +1,6 @@
 <script lang="ts">
   import { getAllLessons } from "$lib/lessons";
+  import LessonCard from "$lib/components/LessonCard.svelte";
   let lessons = getAllLessons();
 </script>
 
@@ -7,18 +8,12 @@
   <title>Course</title>
 </svelte:head>
 
-<main>
-  <h1>Course Lessons</h1>
+<main class="max-w-4xl mx-auto px-6 py-12">
+  <h1 class="text-3xl font-bold text-label-primary mb-8">Course Lessons</h1>
 
-  <div>
+  <div class="grid gap-4">
     {#each lessons as lesson, i}
-      <a href="lessons/{lesson.slug}">
-        <span class="lesson-number">Lesson {i + 1}</span>
-        <h2>{lesson.title}</h2>
-        {#if lesson.description}
-          <p>{lesson.description}</p>
-        {/if}
-      </a>
+      <LessonCard {lesson} index={i} />
     {/each}
   </div>
 </main>
