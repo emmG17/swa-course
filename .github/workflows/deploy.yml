@@ -35,4 +35,4 @@ jobs:
           script: |
             cd ${{ secrets.VPS_TARGET_DIR }}
             pid=$(lsof -ti:${{ vars.PORT }}) && kill $pid || true
-            NODE_ENV=production PORT=${{ vars.PORT }} nohup bun run dist/index.js > app.log 2>&1 &
+            NODE_ENV=production PORT=${{ vars.PORT }} nohup ~/.bun/bin/bun run dist/index.js > app.log 2>&1 &
