@@ -76,7 +76,7 @@ Emmanuel G. | January, 2026
 layout: section
 ---
 
-What is Software Architecture? 
+# Part 1: What is Software Architecture? 
 
 ---
 
@@ -242,7 +242,7 @@ However, only 1-2 are **APPROPRIATE** for this specific context. Architecture is
 layout: section
 ---
 
-Part 2: Quality Attributes 
+# Part 2: Quality Attributes 
 
 ---
 
@@ -295,7 +295,7 @@ You cannot optimize for everything equally.
 layout: section
 ---
 
-Part 3: Conway's Law 
+# Part 3: Conway's Law 
 
 ---
 
