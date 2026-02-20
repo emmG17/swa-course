@@ -16,5 +16,5 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const html = await marked(raw);
 
-  return { html, slug: params.slug };
+  return { html, raw, slug: params.slug };
 };
