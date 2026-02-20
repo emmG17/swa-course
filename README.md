@@ -1,42 +1,63 @@
-# sv
+# Lumina
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Lumina is a website used to host a course about software architecture. It serves course slides, documents, and resources built with SvelteKit and Slidev.
 
-## Creating a project
+## Prerequisites
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [Bun](https://bun.sh/) (JavaScript runtime and package manager)
 
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
+## Installation
 
 ```sh
-# recreate this project
-bun x sv create --template minimal --types ts --add eslint tailwindcss="plugins:typography,forms" --install bun lumina
+bun install
 ```
 
-## Developing
+## Development
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Start a development server:
 
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+bun run dev
 ```
+
+Or start the server and open the app in a new browser tab:
+
+```sh
+bun run dev -- --open
+```
+
+This command doesn't build the slide decks, so you can make changes to the Slidev source files and see them reflected in the browser without restarting the server. To build the slide decks, run:
+
+```sh
+bun run build:slides
+```
+
+If you need to watch the slide decks for changes, you can run:
+
+```sh
+bunx slidev slides/{slide-deck-name}
+```
+Substitute `{slide-deck-name}` with the name of the slide deck you want to watch. This will rebuild the slide deck whenever you make changes to the source files.
 
 ## Building
 
-To create a production version of your app:
+To create a production build:
 
 ```sh
-npm run build
+bun run build
 ```
 
-You can preview the production build with `npm run preview`.
+This builds the slide decks and then compiles the SvelteKit application.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+You can preview the production build with:
+
+```sh
+bun run preview
+```
+
+## Linting and Type Checking
+
+```sh
+bun run lint
+bun run check
+```
