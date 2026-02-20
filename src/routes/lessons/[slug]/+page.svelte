@@ -5,6 +5,10 @@
 
   let { params }: PageProps = $props();
   let lesson = $derived(getLesson(params.slug));
+  let title = $derived.by(() => {
+    let lesson = getLesson(params.slug);
+    return lesson ? lesson.title : "Lesson Not Found";
+  });
 
   let sidebarOpen = $state(true);
 
@@ -15,6 +19,10 @@
     audio: "icon-[mdi--headphones]",
   };
 </script>
+
+<svelte:head>
+  <title>Lumina | {title}</title>
+</svelte:head>
 
 {#if !lesson}
   <main class="max-w-5xl mx-auto px-6 py-12">
