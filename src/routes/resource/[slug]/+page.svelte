@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-  <title>Lumina | {data.slug}</title>
+  <title>Lumina | Resources</title>
 </svelte:head>
 
 <main class="max-w-4xl mx-auto px-6 py-12">
