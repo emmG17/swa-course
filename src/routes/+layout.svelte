@@ -1,6 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import animatedLogo from '$lib/assets/lumina-animated.svg';
 	import { theme } from '$lib/theme.svelte';
 	import { onMount } from 'svelte';
 
@@ -23,7 +24,8 @@
 </div>
 
 <nav class="flex items-center justify-between px-6 py-4 border-b border-separator bg-bg-primary">
-  <a href="/" class="text-lg font-semibold text-label-primary hover:text-apple-green transition-colors">
+  <a href="/" class="flex items-center gap-2 text-lg font-semibold text-label-primary hover:text-apple-green transition-colors">
+    <img src={animatedLogo} alt="" class="inline-block w-8 h-8 ml-1" />
     Lumina
   </a>
   <button
