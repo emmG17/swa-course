@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import type { ResourceType } from "$lib/types";
   import { getLesson } from "$lib/lessons";
+  import ResourceItem from "$lib/components/ResourceItem.svelte";
 
   let { params }: PageProps = $props();
   let lesson = $derived(getLesson(params.slug));
@@ -11,13 +11,6 @@
   });
 
   let sidebarOpen = $state(true);
-
-  const iconByType: Record<ResourceType, string> = {
-    video: "icon-[mdi--video]",
-    document: "icon-[mdi--file-document]",
-    link: "icon-[mdi--open-in-new]",
-    audio: "icon-[mdi--headphones]",
-  };
 </script>
 
 <svelte:head>
@@ -63,22 +56,7 @@
                 <h2 class="text-xs font-semibold text-label-secondary uppercase tracking-wide px-2 mb-1">Resources</h2>
               {/if}
               {#each lesson.resources as resource}
-                <a
-                  href={resource.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="relative flex items-center {sidebarOpen ? 'gap-3 px-3 py-2' : 'justify-center py-2'} rounded-lg hover:bg-black/5 dark:hover:bg-white/10 hover:text-apple-green transition-colors group"
-                  title={sidebarOpen ? undefined : resource.name}
-                >
-                  <span class="{iconByType[resource.type]} text-xl text-apple-green shrink-0"></span>
-                  {#if sidebarOpen}
-                    <span class="text-sm text-label-primary truncate group-hover:text-apple-green transition-colors">{resource.name}</span>
-                  {:else}
-                    <span class="pointer-events-none absolute left-full ml-2 px-2.5 py-1.5 rounded-lg bg-bg-tertiary border border-separator text-sm text-label-primary whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-10">
-                      {resource.name}
-                    </span>
-                  {/if}
-                </a>
+                <ResourceItem {resource} {sidebarOpen} />
               {/each}
             </nav>
           </div>
