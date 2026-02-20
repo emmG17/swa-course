@@ -8,6 +8,9 @@
 
   let { resource, sidebarOpen }: Props = $props();
 
+  let isDocument = $derived(resource.type === "document");
+  let href = $derived(isDocument ? `/resource/${resource.url.replace(/\.[^.]+$/, '')}` : resource.url);
+
   const iconByType: Record<string, string> = {
     video: "icon-[mdi--video]",
     document: "icon-[mdi--file-document]",
@@ -17,9 +20,9 @@
 </script>
 
 <a
-  href={resource.url}
-  target="_blank"
-  rel="noopener noreferrer"
+  href={href}
+  target={isDocument ? undefined : "_blank"}
+  rel={isDocument ? undefined : "noopener noreferrer"}
   class="relative flex items-center {sidebarOpen ? 'gap-3 px-3 py-2' : 'justify-center py-2'} rounded-lg hover:bg-black/5 dark:hover:bg-white/10 hover:text-apple-green transition-colors group"
   title={sidebarOpen ? undefined : resource.name}
 >

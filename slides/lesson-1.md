@@ -3,9 +3,15 @@ title: Intro to Software Architecture
 description: Why do some systems become unmaintainable nightmares while others scale gracefully?
 theme: vibe
 resources:
-  - name: "Software Architecture in Practice"
-    url: "https://www.oreilly.com/library/view/software-architecture-in/9780136885979/"
-    type: link
+    - name: "Case Study"
+      url: "lesson-1-case-study.md"
+      type: "document"
+    - name: "Deliverable Guide"
+      url: "lesson-1-deliverable-guide.md"
+      type: "document"
+    - name: "Deliverable Template"
+      url: "lesson-1-deliverable-template.md"
+      type: "document"
 ---
 
 # Software Architecture

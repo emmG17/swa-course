@@ -28,6 +28,24 @@
   --color-apple-green: #30D158;
 }
 
+/* Prose typography overrides */
+.prose {
+  --tw-prose-body: var(--color-label-primary);
+  --tw-prose-headings: var(--color-label-primary);
+  --tw-prose-links: var(--color-apple-green);
+  --tw-prose-bold: var(--color-label-primary);
+  --tw-prose-counters: var(--color-label-secondary);
+  --tw-prose-bullets: var(--color-label-secondary);
+  --tw-prose-hr: var(--color-separator);
+  --tw-prose-quotes: var(--color-label-primary);
+  --tw-prose-quote-borders: var(--color-apple-green);
+  --tw-prose-code: var(--color-label-primary);
+  --tw-prose-pre-code: var(--color-label-primary);
+  --tw-prose-pre-bg: var(--color-bg-secondary);
+  --tw-prose-th-borders: var(--color-separator);
+  --tw-prose-td-borders: var(--color-separator);
+}
+
 /* Base element styling */
 body {
   background-color: var(--color-bg-primary);
