@@ -7,10 +7,19 @@ const SLIDES_DIR = 'slides';
 const MANIFEST_PATH = join('.', 'src/lib/lessons.json');
 const OUTPUT_DIR = 'static/slides';
 
+type ResourceType = 'video' | 'document' | 'link' | 'audio';
+
+interface LessonResource {
+  url: string;
+  name: string;
+  type: ResourceType;
+}
+
 interface LessonMeta {
   slug: string;
   title: string;
   description: string;
+  resources?: LessonResource[];
 }
 
 async function main() {
@@ -38,6 +47,7 @@ async function main() {
       slug,
       title: data.title || slug,
       description: data.description || '',
+      ...(data.resources ? { resources: data.resources } : {}),
     } as LessonMeta;
   });
 
