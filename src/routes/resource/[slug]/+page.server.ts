@@ -1,16 +1,18 @@
 import { error } from '@sveltejs/kit';
-import { readFile } from 'fs/promises';
-import { resolve } from 'path';
 import { marked } from 'marked';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ params }) => {
-  const filePath = resolve('src/content', `${params.slug}.md`);
+const contentFiles = import.meta.glob('/src/content/*.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true
+}) as Record<string, string>;
 
-  let raw: string;
-  try {
-    raw = await readFile(filePath, 'utf-8');
-  } catch {
+export const load: PageServerLoad = async ({ params }) => {
+  const key = `/src/content/${params.slug}.md`;
+  const raw = contentFiles[key];
+
+  if (!raw) {
     error(404, 'Resource not found');
   }
 
