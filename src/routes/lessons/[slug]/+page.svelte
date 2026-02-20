@@ -21,10 +21,10 @@
     <p class="text-label-secondary">Lesson not found.</p>
   </main>
 {:else}
-  <main class="flex flex-col h-[calc(100dvh-57px)] overflow-hidden px-6 py-6">
+  <main class="flex flex-col h-[90dvh] overflow-hidden px-6 py-6">
     <h1 class="text-3xl font-bold text-label-primary mb-4 shrink-0">{lesson.title}</h1>
 
-    <div class="flex flex-1 min-h-0 gap-4 overflow-hidden">
+    <div class="flex flex-1 min-h-0 h-full gap-4 overflow-hidden">
       <!-- Iframe -->
       <div class="flex-1 min-w-0 rounded-xl overflow-hidden border border-separator bg-bg-secondary">
         <iframe
