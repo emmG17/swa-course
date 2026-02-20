@@ -3,6 +3,8 @@
   import { getLesson } from "$lib/lessons";
   import ResourceItem from "$lib/components/ResourceItem.svelte";
 
+  const SM_BREAKPOINT = 640; // Tailwind's sm breakpoint in pixels 
+
   let { params }: PageProps = $props();
   let lesson = $derived(getLesson(params.slug));
   let title = $derived.by(() => {
@@ -10,7 +12,7 @@
     return lesson ? lesson.title : "Lesson Not Found";
   });
 
-  let sidebarOpen = $state(false);
+  let sidebarOpen = $state(typeof window !== 'undefined' && window.innerWidth <= SM_BREAKPOINT);
 </script>
 
 <svelte:head>
@@ -25,7 +27,7 @@
   <main class="flex flex-col h-[90dvh] overflow-hidden px-6 py-6">
     <h1 class="text-3xl font-bold text-label-primary mb-4 shrink-0">{lesson.title}</h1>
 
-    <div class="flex flex-1 min-h-0 h-full gap-4 overflow-hidden">
+    <div class="flex flex-col md:flex-row flex-1 min-h-0 h-full gap-4 overflow-hidden">
       <!-- Iframe -->
       <div class="flex-1 min-w-0 rounded-xl overflow-hidden border border-separator bg-bg-secondary">
         <iframe
@@ -38,18 +40,17 @@
       <!-- Sidebar -->
       {#if lesson.resources && lesson.resources.length > 0}
         <aside
-          class="flex shrink-0 overflow-hidden transition-all duration-300 rounded-xl border border-separator bg-black/5 backdrop-blur-sm dark:bg-white/5 {sidebarOpen ? 'w-72' : 'w-14'}"
+          class="flex shrink-0 overflow-hidden transition-all duration-300 rounded-xl border border-separator bg-black/5 backdrop-blur-sm dark:bg-white/5 {sidebarOpen ? 'w-full sm:w-72' : 'w-14'}"
         >
           <div class="flex flex-col h-full w-full min-h-0 p-1.5">
             <!-- Toggle button -->
             <button
               onclick={() => sidebarOpen = !sidebarOpen}
-              class="flex items-center justify-center w-9 h-9 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors shrink-0"
+              class="flex hidden sm:block items-center justify-center w-9 h-9 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors shrink-0"
               aria-label={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
             >
               <span class="icon-[mdi--chevron-left] text-xl text-label-secondary transition-transform duration-300 {sidebarOpen ? 'rotate-180' : ''}"></span>
             </button>
-
             <!-- Resource list -->
             <nav class="mt-2 flex flex-col gap-1.5 overflow-y-auto overflow-x-hidden min-h-0">
               {#if sidebarOpen}
