@@ -32,4 +32,101 @@ body {
   background-color: var(--color-bg-primary);
   color: var(--color-label-primary);
   transition: background-color 0.2s ease, color 0.2s ease;
+  overflow-x: hidden;
+}
+
+/* Lava lamp background */
+.lava-lamp {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.lava-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-apple-green);
+  opacity: 0.07;
+}
+
+.dark .lava-blob {
+  opacity: 0.05;
+}
+
+.lava-blob-1 {
+  width: 400px;
+  height: 400px;
+  top: 10%;
+  left: 15%;
+  animation: lava-float-1 18s ease-in-out infinite;
+}
+
+.lava-blob-2 {
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  right: 10%;
+  animation: lava-float-2 22s ease-in-out infinite;
+}
+
+.lava-blob-3 {
+  width: 350px;
+  height: 350px;
+  bottom: 10%;
+  left: 40%;
+  animation: lava-float-3 20s ease-in-out infinite;
+}
+
+.lava-blob-4 {
+  width: 250px;
+  height: 250px;
+  top: 30%;
+  left: 60%;
+  animation: lava-float-4 25s ease-in-out infinite;
+}
+
+.lava-blob-5 {
+  width: 320px;
+  height: 320px;
+  top: 70%;
+  left: 5%;
+  animation: lava-float-5 19s ease-in-out infinite;
+}
+
+@keyframes lava-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(80px, 60px) scale(1.1); }
+  50% { transform: translate(30px, 120px) scale(0.9); }
+  75% { transform: translate(-50px, 40px) scale(1.05); }
+}
+
+@keyframes lava-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-60px, -80px) scale(1.15); }
+  50% { transform: translate(-100px, 20px) scale(0.85); }
+  75% { transform: translate(40px, -40px) scale(1.1); }
+}
+
+@keyframes lava-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(70px, -90px) scale(0.95); }
+  50% { transform: translate(-40px, -50px) scale(1.12); }
+  75% { transform: translate(90px, -20px) scale(0.88); }
+}
+
+@keyframes lava-float-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-70px, 100px) scale(1.2); }
+  66% { transform: translate(50px, -60px) scale(0.8); }
+}
+
+@keyframes lava-float-5 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  20% { transform: translate(100px, -30px) scale(1.08); }
+  40% { transform: translate(60px, -80px) scale(0.92); }
+  60% { transform: translate(-30px, -60px) scale(1.15); }
+  80% { transform: translate(-60px, 20px) scale(0.9); }
 }

@@ -13,6 +13,15 @@
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
+<!-- Lava lamp background -->
+<div class="lava-lamp" aria-hidden="true">
+  <div class="lava-blob lava-blob-1"></div>
+  <div class="lava-blob lava-blob-2"></div>
+  <div class="lava-blob lava-blob-3"></div>
+  <div class="lava-blob lava-blob-4"></div>
+  <div class="lava-blob lava-blob-5"></div>
+</div>
+
 <nav class="flex items-center justify-between px-6 py-4 border-b border-separator bg-bg-primary">
   <a href="/" class="text-lg font-semibold text-label-primary hover:text-apple-green transition-colors">
     Lumina
