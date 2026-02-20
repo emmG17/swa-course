@@ -10,7 +10,7 @@
     return lesson ? lesson.title : "Lesson Not Found";
   });
 
-  let sidebarOpen = $state(true);
+  let sidebarOpen = $state(false);
 </script>
 
 <svelte:head>
@@ -47,7 +47,7 @@
               class="flex items-center justify-center w-9 h-9 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors shrink-0"
               aria-label={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
             >
-              <span class="icon-[mdi--chevron-right] text-xl text-label-secondary transition-transform duration-300 {sidebarOpen ? 'rotate-180' : ''}"></span>
+              <span class="icon-[mdi--chevron-left] text-xl text-label-secondary transition-transform duration-300 {sidebarOpen ? 'rotate-180' : ''}"></span>
             </button>
 
             <!-- Resource list -->
