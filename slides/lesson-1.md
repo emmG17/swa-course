@@ -16,7 +16,9 @@ resources:
 
 # Software Architecture
 
-## Week 1: Introduction to Software Architecture
+## Introduction to Software Architecture
+
+<br>
 
 Emmanuel G. | January, 2026
 
