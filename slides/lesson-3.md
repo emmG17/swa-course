@@ -2,6 +2,16 @@
 theme: vibe 
 title: Quality Attributes & Tradeoffs
 description: "How to Make Informed Architecture Decisions"
+resources:
+    - name: "Workshop Materials"
+      url: "lesson-3-workshop-assignement.md"
+      type: "document"
+    - name: "Studend Handout"
+      url: "lesson-3-student-handout.md"
+      type: "document"
+    - name: "Deliverable Guide"
+      url: "lesson-3-deliverable-guide.md"
+      type: "document"
 drawings:
   persist: false
 ---
